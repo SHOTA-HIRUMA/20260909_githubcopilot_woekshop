@@ -1,0 +1,196 @@
+:root {
+  color-scheme: light;
+  --bg-start: #6f67cf;
+  --bg-end: #5951bb;
+  --card-bg: #ededf2;
+  --panel-bg: #d8d9e7;
+  --primary: #6a74e6;
+  --text-main: #2e2f36;
+  --text-sub: #62657b;
+  --ring-track: #dcdde2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: "Yu Gothic UI", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  color: var(--text-main);
+  background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
+}
+
+.screen {
+  width: min(92vw, 440px);
+  padding: 16px;
+}
+
+.timer-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 16px 30px rgba(57, 49, 135, 0.2);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+.card-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+.window-controls {
+  display: flex;
+  gap: 14px;
+  color: #777b89;
+  font-size: 0.95rem;
+}
+
+.session-label {
+  margin: 0;
+  text-align: center;
+  color: var(--text-sub);
+  font-size: 1.65rem;
+}
+
+.timer-ring {
+  --progress: 0.72;
+  width: clamp(220px, 56vw, 280px);
+  aspect-ratio: 1;
+  margin: 28px auto 32px;
+  border-radius: 999px;
+  background:
+    conic-gradient(var(--primary) calc(var(--progress) * 1turn), var(--ring-track) 0);
+  position: relative;
+}
+
+.timer-ring-inner {
+  position: absolute;
+  inset: 18px;
+  border-radius: inherit;
+  background: var(--card-bg);
+  display: grid;
+  place-items: center;
+}
+
+.timer-text {
+  margin: 0;
+  font-size: clamp(2.8rem, 8vw, 4rem);
+  font-weight: 700;
+}
+
+.action-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 34px;
+}
+
+.btn {
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-size: 1.9rem;
+  font-weight: 700;
+  padding: 12px 30px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #7a73dd 0%, #5e53bc 100%);
+  color: #fff;
+}
+
+.btn-secondary {
+  border-color: var(--primary);
+  background: transparent;
+  color: var(--primary);
+}
+
+.progress-panel {
+  background: var(--panel-bg);
+  border-radius: 16px;
+  padding: 18px 22px 14px;
+}
+
+.progress-panel h2 {
+  margin: 0 0 16px;
+  font-size: 2rem;
+}
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.metric {
+  text-align: center;
+}
+
+.metric-value {
+  margin: 0;
+  color: var(--primary);
+  font-size: 2.7rem;
+  font-weight: 700;
+}
+
+.metric-label {
+  margin: 4px 0 0;
+  font-size: 1.65rem;
+  color: var(--text-sub);
+}
+
+@media (max-width: 520px) {
+  .timer-card {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .card-header {
+    margin-bottom: 24px;
+  }
+
+  .card-header h1 {
+    font-size: 1.65rem;
+  }
+
+  .session-label {
+    font-size: 1.2rem;
+  }
+
+  .timer-ring {
+    width: min(74vw, 250px);
+  }
+
+  .timer-text {
+    font-size: clamp(2rem, 12vw, 2.8rem);
+  }
+
+  .btn {
+    font-size: 1.2rem;
+    padding: 10px 24px;
+  }
+
+  .progress-panel h2 {
+    font-size: 1.35rem;
+  }
+
+  .metric-value {
+    font-size: 2rem;
+  }
+
+  .metric-label {
+    font-size: 1rem;
+  }
+}
